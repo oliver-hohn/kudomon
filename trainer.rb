@@ -1,13 +1,14 @@
 require "./kudomon"
 require "./game"
-
+# Represents the Trainer's in the Game
 class Trainer
+  # Sets up the position of the Trainer, and their name
   def initialize(n, x, y, g)
     @name, @xPos, @yPos, @game, @catched_kudomons = n, x, y, g, Array.new
     @game.add_trainer(self)
-
   end
 
+  # Find the Kudomon's in the Game field close to the position of the Trainer
   def find_kudomons()
     kudomons = @game.kudomons
     nearby_kudomons = Array.new
@@ -22,6 +23,8 @@ class Trainer
     return nearby_kudomons
   end
 
+  # Attempt to catch the given Kudomon.
+  # Returns a boolean confirming whether the given Kudomon was caught
   def catch_kudomon(k)
     #try to catch the given kudomon
     search_range = 10
@@ -33,16 +36,17 @@ class Trainer
       k.life_cyc = KudomonLifeCycle::CAUGHT
       return true
     end
-    return false
+    false
   end
 
+  # Check if the Kudomon can be caught, i.e. in range and it is FREE to be caught
   def can_catch?(r, k)
-    return in_range?(r, k) && k.life_cyc == KudomonLifeCycle::FREE
+    in_range?(r, k) && k.life_cyc == KudomonLifeCycle::FREE
   end
 
+  # Check if given Kudomon is in our range
   def in_range?(r, k)
-    #check if given kudomon is in our range
-    return k.xPos >= (@xPos -r) && k.xPos <= (@xPos+r) && k.yPos >= (@yPos -r) && k.yPos <= (@yPos +r)
+    k.xPos >= (@xPos -r) && k.xPos <= (@xPos+r) && k.yPos >= (@yPos -r) && k.yPos <= (@yPos +r)
   end
 
   private :in_range?, :can_catch?

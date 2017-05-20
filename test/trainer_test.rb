@@ -15,7 +15,6 @@ class TrainerTest < Test::Unit::TestCase
     @game.add_trainer(@trainer)
     @kudomon_2 = Kudomon.new("Kudomon 2", 8, 3, KudomonTypes::ELECTRIC, 14)
     @game.add_kudomon(@kudomon_2)
-
   end
 
   # Test correct Kudomons are found
@@ -42,11 +41,15 @@ class TrainerTest < Test::Unit::TestCase
     assert_true(@trainer.catch_kudomon(@kudomon_2))
   end
 
-
   # Called after every test method runs. Can be used to tear
   # down fixture information.
   def teardown
     # Do nothing
+  end
+
+  # Fake test
+  def test_fail
+    fail('Not implemented')
   end
 
 end

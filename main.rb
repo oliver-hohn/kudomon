@@ -21,7 +21,7 @@ puts t.catch_kudomon(tp)
 ti.battle(tp)
 
 
-p1 = Kudomon.new("A", 5,4,KudomonTypes::GRASS, 15)
+p1 = Kudomon.new("A", 5, 4, KudomonTypes::GRASS, 15)
 
 
 
