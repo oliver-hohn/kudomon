@@ -2,6 +2,9 @@ require "./kudomon"
 require "./game"
 # Represents the Trainer's in the Game
 class Trainer
+  SEARCH_RANGE = 6
+
+  attr_reader :catched_kudomons, :name
   # Sets up the position of the Trainer, and their name
   def initialize(n, x, y, g)
     @name, @xPos, @yPos, @game, @catched_kudomons = n, x, y, g, Array.new
@@ -13,9 +16,8 @@ class Trainer
     kudomons = @game.kudomons
     nearby_kudomons = Array.new
     #from the list of kudomons, find the ones close to xpos, ypos
-    search_range = 10
     kudomons.each {|k|
-      if in_range?(search_range, k)
+      if in_range?(SEARCH_RANGE, k)
         #k is in range
         nearby_kudomons << k
       end
@@ -27,8 +29,7 @@ class Trainer
   # Returns a boolean confirming whether the given Kudomon was caught
   def catch_kudomon(k)
     #try to catch the given kudomon
-    search_range = 10
-    if can_catch?(search_range, k)
+    if can_catch?(SEARCH_RANGE, k)
       #in range, and it is not being caught by others
       k.life_cyc = KudomonLifeCycle::BEING_CAUGHT
       @catched_kudomons << k

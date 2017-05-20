@@ -13,7 +13,7 @@ class TrainerTest < Test::Unit::TestCase
     @kudomon_1 = Kudomon.new("Kudomon 1", 25, 55, KudomonTypes::WATER, 15)
     @game.add_kudomon(@kudomon_1)
     @game.add_trainer(@trainer)
-    @kudomon_2 = Kudomon.new("Kudomon 2", 8, 3, KudomonTypes::ELECTRIC, 14)
+    @kudomon_2 = Kudomon.new("Kudomon 2", 8, 4, KudomonTypes::ELECTRIC, 14)
     @game.add_kudomon(@kudomon_2)
   end
 

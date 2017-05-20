@@ -29,17 +29,17 @@ class Kudomon
   # Get Array of all the Types this Kudomon is striong against
   def get_effective_against(k)
     case k.type
-      when KudomonTypes::WATER
+      when KudomonTypes::WATER then
         [KudomonTypes::FIRE]
-      when KudomonTypes::FIRE
+      when KudomonTypes::FIRE then
         [KudomonTypes::GRASS]
-      when KudomonTypes::GRASS
+      when KudomonTypes::GRASS then
         [KudomonTypes::ROCK]
-      when KudomonTypes::ROCK
+      when KudomonTypes::ROCK then
         [KudomonTypes::ELECTRIC]
-      when KudomonTypes::ELECTRIC
+      when KudomonTypes::ELECTRIC then
         [KudomonTypes::WATER]
-      when KudomonTypes::PSYCHIC
+      when KudomonTypes::PSYCHIC then
         [KudomonTypes::WATER, KudomonTypes::FIRE, KudomonTypes::GRASS, KudomonTypes::ROCK, KudomonTypes::ELECTRIC]
       else
         []
