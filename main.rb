@@ -2,6 +2,8 @@ require './game'
 require './trainer'
 require './kudomon'
 
+# Showing off the features, by running ruby on this file (main.rb)
+
 g = Game.new
 
 # The different entities in the Game
