@@ -61,13 +61,13 @@ class Kudomon
   def battle(k)
     puts "#{self.name} vs #{k.name}"
     # Pick randomly which goes first
-    kodomon_turn = rand(100) >= 50 ? self : k
-    other = kodomon_turn === self ? k : self
     while k.hp > 0 && self.hp >0
+      kodomon_turn = rand(100) >= 50 ? self : k
+      other = kodomon_turn === self ? k : self
       attack(kodomon_turn, other)
-      tmp = kodomon_turn
-      kodomon_turn = other
-      other = tmp
+      if(other.hp > 0) # if other is still alive, it can attack
+        attack(other, kodomon_turn)
+      end
     end
     winner = self.hp > 0 ? self : k
     puts "Winner: #{winner.name}"
