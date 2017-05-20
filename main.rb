@@ -37,3 +37,6 @@ nearby.each {|k|
     puts "#{t2.name}Caught: #{k.name}"
   end
 }
+
+# Psychic Types battling each other
+k2.battle(k6)

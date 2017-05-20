@@ -6,6 +6,10 @@ class Trainer
 
   attr_reader :catched_kudomons, :name
   # Sets up the position of the Trainer, and their name
+  # n - Trainers name
+  # x - Trainers x co-ordinate in the game map
+  # y - Trainers y co-ordinate in the game map
+  # g - The Game the Trainer is in
   def initialize(n, x, y, g)
     @name, @xPos, @yPos, @game, @catched_kudomons = n, x, y, g, Array.new
     @game.add_trainer(self)
@@ -25,7 +29,7 @@ class Trainer
     return nearby_kudomons
   end
 
-  # Attempt to catch the given Kudomon.
+  # Attempt to catch the given Kudomon k.
   # Returns a boolean confirming whether the given Kudomon was caught
   def catch_kudomon(k)
     #try to catch the given kudomon
@@ -40,12 +44,12 @@ class Trainer
     false
   end
 
-  # Check if the Kudomon can be caught, i.e. in range and it is FREE to be caught
+  # Check if the Kudomon k can be caught, i.e. in range r and it is FREE to be caught
   def can_catch?(r, k)
     in_range?(r, k) && k.life_cyc == KudomonLifeCycle::FREE
   end
 
-  # Check if given Kudomon is in our range
+  # Check if given Kudomon k is in our range r
   def in_range?(r, k)
     k.xPos >= (@xPos -r) && k.xPos <= (@xPos+r) && k.yPos >= (@yPos -r) && k.yPos <= (@yPos +r)
   end

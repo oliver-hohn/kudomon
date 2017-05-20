@@ -22,11 +22,16 @@ class Kudomon
   attr_writer :life_cyc, :hp
 
   # Create a Kudomon with the required data, i.e. name, its position, type, etc.
+  # n - Kudomon name (species)
+  # x - Kudomons x co-ordinate in the game map
+  # y - Kudomons y co-ordinate in the game map
+  # t - Kudomons type, given by KudomonType
+  # c - the CP, or Combat Points, of the Kudomon
   def initialize(n, x, y, t, c)
     @name, @xPos, @yPos, @type, @life_cyc, @hp, @cp = n, x, y, t, KudomonLifeCycle::FREE, 100, c
   end
 
-  # Get Array of all the Types this Kudomon is striong against
+  # Get Array of all the Types this Kudomon k is strong against
   def get_effective_against(k)
     case k.type
       when KudomonTypes::WATER then
