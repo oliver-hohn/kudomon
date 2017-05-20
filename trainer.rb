@@ -45,7 +45,6 @@ class Trainer
     return k.xPos >= (@xPos -r) && k.xPos <= (@xPos+r) && k.yPos >= (@yPos -r) && k.yPos <= (@yPos +r)
   end
 
-
   private :in_range?, :can_catch?
 
 end

@@ -10,10 +10,10 @@ class TrainerTest < Test::Unit::TestCase
   def setup
     @game = Game.new
     @trainer = Trainer.new("Timmy", 5, 10, @game)
-    @kudomon_1 = Kudomon.new("Kudomon 1", 25, 55, KudomonTypes::WATER)
+    @kudomon_1 = Kudomon.new("Kudomon 1", 25, 55, KudomonTypes::WATER, 15)
     @game.add_kudomon(@kudomon_1)
     @game.add_trainer(@trainer)
-    @kudomon_2 = Kudomon.new("Kudomon 2", 8, 3, KudomonTypes::ELECTRIC)
+    @kudomon_2 = Kudomon.new("Kudomon 2", 8, 3, KudomonTypes::ELECTRIC, 14)
     @game.add_kudomon(@kudomon_2)
 
   end
