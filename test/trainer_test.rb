@@ -9,7 +9,7 @@ class TrainerTest < Test::Unit::TestCase
   # to set up fixture information.
   def setup
     @game = Game.new
-    @trainer = Trainer.new("Timmy",5,10,@game)
+    @trainer = Trainer.new("Timmy", 5, 10, @game)
     @kudomon_1 = Kudomon.new("Kudomon 1", 25, 55, KudomonTypes::WATER)
     @game.add_kudomon(@kudomon_1)
     @game.add_trainer(@trainer)
@@ -32,17 +32,21 @@ class TrainerTest < Test::Unit::TestCase
     assert_false (@trainer.catch_kudomon(@kudomon_1))
   end
 
+  # Tests catching Kudomons that are being caught by others
+  def test_catching_kudomon
+    @kudomon_2.life_cyc=KudomonLifeCycle::BEING_CAUGHT
+    assert_false (@trainer.catch_kudomon(@kudomon_2))
+    @kudomon_2.life_cyc= KudomonLifeCycle::CAUGHT
+    assert_false (@trainer.catch_kudomon(@kudomon_2))
+    @kudomon_2.life_cyc= KudomonLifeCycle::FREE
+    assert_true(@trainer.catch_kudomon(@kudomon_2))
+  end
+
+
   # Called after every test method runs. Can be used to tear
   # down fixture information.
-
   def teardown
     # Do nothing
   end
 
-
-
-  # Fake test
-  def test_fail
-    fail('Not implemented')
-  end
 end

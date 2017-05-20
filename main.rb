@@ -2,11 +2,6 @@ require './game'
 require './trainer'
 require './kudomon'
 
-
-class Main
-end
-
-
 g = Game.new
 t = Trainer.new("Timmy", 5, 4, g)
 ti = Kudomon.new("Potato", 4, 7, KudomonTypes::GRASS)

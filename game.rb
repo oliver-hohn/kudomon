@@ -16,6 +16,11 @@ class Game
     @trainers << t
   end
 
+  # Remove Kudomon from the game area
+  def remove_kudomon(k)
+    @kudomons.delete(k)
+  end
+
 
 end
 
