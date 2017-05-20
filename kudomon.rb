@@ -85,7 +85,7 @@ class Kudomon
     # Check whether the attacker is effective against the defender d
     if get_effective_against(a).include?(d.type)
       2.0
-    elsif get_effective_against(d).include?(a.type) || a.type == d.type && a.type==KudomonTypes::PSYCHIC
+    elsif get_effective_against(d).include?(a.type) || (a.type == d.type && a.type==KudomonTypes::PSYCHIC)
       0.5
     else
       1.0
