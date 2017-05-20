@@ -47,9 +47,4 @@ class TrainerTest < Test::Unit::TestCase
     # Do nothing
   end
 
-  # Fake test
-  def test_fail
-    fail('Not implemented')
-  end
-
 end

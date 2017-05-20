@@ -9,8 +9,7 @@ class KudomonTest < Test::Unit::TestCase
     # Do nothing
     @k1 = Kudomon.new("Kudomon 1", 5, 5, KudomonTypes::WATER, 10)
     @k2 = Kudomon.new("Kudomon 2", 8, 8, KudomonTypes::FIRE, 10)
-    @k3 = Kudomon.new("Kudomon 3", 5, 5, KudomonTypes::PSYCHIC, 10)
-    @k4 = Kudomon.new("Kudomon 4", 8, 8, KudomonTypes::PSYCHIC, 10)
+
   end
 
   # Test the expected winner of a Kudomon battle, where an Kudomon k1 is effective against a Kudomon k2, then
@@ -28,8 +27,4 @@ class KudomonTest < Test::Unit::TestCase
     # Do nothing
   end
 
-  # Fake test
-  def test_fail
-    fail('Not implemented')
-  end
 end
